@@ -1,1 +1,1 @@
-Packets from different flows arrive at a switch or a router for processing. A good scheduling technique treats the different flows in a fair and appropriate manner. Implement priority queueing as a technique to improve quality of service.
+Write a program to achive traffic management at flow level implementing leaky bucket algorithm.
