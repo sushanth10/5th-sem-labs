@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Selection</title>
+</head>
+<body>
+    <h2>Select Item from the following list : </h2>
+    <select name="select-item" id="select-item" onchange="selectionDone()">
+        <option value="Banana">Banana</option>
+        <option value="Apple">Apple</option>
+        <option value="Milk">Milk</option>
+    </select>
+
+    <script>
+        var dropdown = document.getElementById('select-item');
+
+        function selectionDone(){
+            var selected = dropdown.value;
+            alert(`${selected} was selected`);
+        }
+    </script>
+</body>
+</html>
