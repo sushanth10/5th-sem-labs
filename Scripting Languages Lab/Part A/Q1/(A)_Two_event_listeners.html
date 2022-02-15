@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two click event listeners</title>
+</head>
+<body>
+    <h2>This program's objective is to add two click event listeners to the same button and investigate the behaviour.</h2>
+    <button id='myBtn'>Click Here</button>
+    
+    <script>
+        var x = document.getElementById('myBtn');
+        x.addEventListener('click', someFunction);
+        x.addEventListener('click', anotherFunction);
+
+        function someFunction(){
+            alert("The first click event was triggered.");
+        }
+
+
+        function anotherFunction(){
+            alert("Stop annoying me human! The second click event was also triggered.");
+        }
+    </script>
+</body>
+</html>
