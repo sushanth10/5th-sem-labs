@@ -4,13 +4,15 @@
 #include<string.h>
 #include<time.h>
 
-// MY BRAIN MADE SOME SUICIDE ATTEMPTS WHILE TRYING TO UNDERSTAND THE CODE.
-// TRIED TO MAKE IT AS UNDERSTANDABLE AS I COULD.
+// THIS CODE IS HARD TO UNDERSTAND
+// I SWEAR I TRIED TO MAKE IT AS UNDERSTANDABLE AS I COULD.
 
 // PERSONALLY I DON'T RECOMMEND THIS CODE.  
 
 // PROCEED LEARNING
 
+
+// This function is to convert the binary representations to ascii characters, taking in 8bit binary
 char getAscii(char bin[]){
     int c, t=0, i=7;
     while(i>=0){
@@ -20,6 +22,7 @@ char getAscii(char bin[]){
     return t;
 }
 
+// This function is to get the binary representation of the letter (which is in ascii format by default)
 void getBinary(char letter, char bin[]){
     int c, t=0, i=7;
     c = (int)letter;
@@ -31,25 +34,27 @@ void getBinary(char letter, char bin[]){
     }
 }
 
-// THINK TWICE BEFORE READING THE NEXT FEW LINES
-
+// division function 
+// augdw is augmented dataword
 void divide(char augdw[], char divisor[], char remainder[]){
     int i, r, l, a, t;
     r = strlen(divisor);
-    t = strlen(augdw)-r+1;
+    t = strlen(augdw)-r+1;  //basically length of the input word
 
     char dividend[18], rem[18];
     
+    // taking first r characters of the word for division
     strncpy(dividend, augdw, r);
     l=0;
     memset(rem, 0, 18);
 
-    while(l<t){
+    while(l<t){  // 'length of input' number of times
         a = 0;
-        memset(rem, 0,18);
+        memset(rem, 0,18);  //initialise the remainder to zero everytime
 
         if(dividend[0]==divisor[0]){
             for(int j=0; j<r; j++){
+                // conduct xor for each bit  
                 if(dividend[i]==divisor[i]){
                     rem[a++]='0';
                 }else{
@@ -57,25 +62,38 @@ void divide(char augdw[], char divisor[], char remainder[]){
                 }
             }
             rem[a] = '\0';
-            strcpy(dividend, rem);
+            strcpy(dividend, rem); //new number to divide is the remainder
         }
         else{
+            // move forward one bit 
             strncpy(dividend, &dividend[1], strlen(dividend)-1);
             dividend[r-1] = '\0';
         }
+        //taking one next character down for division
         int o = strlen(dividend);
         dividend[o] = augdw[l+r];
         dividend[r] = '\0';
         l++;
     }
 
+    // copying the answer into the remainder variable
     strncpy(remainder, dividend, r-1);
     remainder[r-1] = '\0';
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]){   
+    // The variables to consider are input string,
+    // augmented codeword, i.e., input followed by 16 zeroes
+    // codeword is the actual word sent, ie, input appended by the remainder 
+    // received codeword is the code received at the other end 
+    // received dataword, is the received codeword minues the appended remainder
+    // divisor is the 17-bit divisor which generates the remainder
+    // remainder is the remainder 
+    // received message the actual message string decoded from the received dataword
+    // bin is to keep track of each binary 8-bit word for conversion
+
     char inp[126], augdw[1018], cw[1018], rcv_cw[1018], rcvdw[1018], divisor[18], remainder[18], rcv_msg[126], bin[9];
+
     printf("Enter the string to be sent  (max 125 characters): ");
     fgets(inp, sizeof(inp), stdin); 
 
@@ -105,8 +123,10 @@ int main(int argc, char const *argv[])
     int err = 0;
     printf("Enter number of errors to be generated : ");
     scanf("%d", &err);
+
     srand(time(0));
-    
+
+    // we introduce errors at random bits in the received codeword     
     int k=0;
     for(int j=0; j<err; j++){
         k = rand()%strlen(rcv_cw)-1;
@@ -122,10 +142,15 @@ int main(int argc, char const *argv[])
         printf("Erroneous data received.\n");
     }
 
+
+    // getting the data word 
     strncpy(rcvdw, rcv_cw, strlen(rcv_cw)-16);
     rcvdw[strlen(rcv_cw)-16]='\0';
+
+    // converting the received dataword into ascii representation
     char letter;
     for(int j=0, k=0; j<strlen(rcvdw); j+=8){
+        // every 8-bit represents a letter, hence we consider 8-bit words for conversion
         strncpy(bin, &rcvdw[j], 8);
         bin[8] = '\0';
         letter = getAscii(bin);
