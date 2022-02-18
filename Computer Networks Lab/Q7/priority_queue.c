@@ -8,18 +8,20 @@ int front=-1, rear=-1;
 void insertIntoQueue(int packet){
     if(rear==MAXSIZE-1){
         printf("Queue Overflow\n");
+        return;
     }
     if(front==-1 && rear==-1){
         queue[++rear] = packet;
         front++;
+        return;
     }
     else{
         int i=rear;
-        while(i>=front && queue[i]>packet){
+        while(i>=front && queue[i]<packet){
             queue[i+1] = queue[i];
             i--;
         }
-        queue[i] = packet;
+        queue[i+1] = packet;
         rear++;
     }
 }
@@ -28,9 +30,11 @@ void removePacket(){
     if(front>rear){
         front=-1;
         rear=-1;
+        return;
     }
     if(front==-1 && rear==-1){
         printf("Queue Underflow\n");
+        return;
     }
     queue[front++] = -99;
     printf("Removed packet.\n");
