@@ -95,7 +95,7 @@ int main(int argc, char const *argv[])
     printf("Remainder is %s\n", remainder);
 
     strcpy(cw, augdw);
-    strcat(cw, remainder);
+    strcat(&cw[strlen(augdw)-16], remainder);
 
     strcat(rcv_cw, cw);
     printf("\nCodeword to be sent  : %s\n", cw);
