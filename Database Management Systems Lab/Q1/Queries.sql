@@ -8,7 +8,7 @@ create table emp(
 
 create table proj(
     pno int primary key,
-    domain varchar(30),
+    domain varchar(30)
 );
 
 create table works_on(
@@ -19,6 +19,14 @@ create table works_on(
     foreign key(ssn) references emp(ssn) on delete cascade on update cascade, 
     foreign key(pno) references proj(pno) on delete cascade on update cascade
 );
+
+-- displaying all data once --
+
+select * from emp;
+
+select * from proj;
+
+select * from works_on;
 
 -- inserting data into emp --
 
@@ -63,12 +71,14 @@ insert into works_on values(4, 105, 32);
 
 select e.* from emp e natural join works_on w natural join proj p where p.domain = 'Database';
 
---2--
+-- 2 --
 
 select count(ssn), deptnum from emp group by deptnum;
 
---3--
+-- 3 --
 
 update works_on 
     set pno=104
     where ssn = 4;
+
+select * from works_on;
