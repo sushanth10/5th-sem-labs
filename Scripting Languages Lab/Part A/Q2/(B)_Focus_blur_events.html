@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus and blur event listeners</title>
+</head>
+<body>
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto non repellendus eum suscipit sed et, quam, autem amet
+        magnam debitis quae quia corporis id eaque dignissimos hic quo delectus aliquid rem. Reiciendis quae ducimus perspiciatis suscipit commodi rerum,
+        obcaecati et id temporibus assumenda repellendus, nulla esse labore voluptatum quo! Nisi, reiciendis veritatis? Ratione nam pariatur totam? Exercitationem
+        perferendis at repudiandae maiores expedita reiciendis quisquam voluptatem eum, animi quia ratione rem corrupti neque nostrum hic? Nisi laboriosam
+        delectus repellat perspiciatis excepturi necessitatibus, eligendi dolorem iusto nulla, exercitationem sequi doloribus velit autem similique. 
+        Sapiente, obcaecati? Corrupti suscipit delectus non, repellendus quas autem.</p>    
+
+    <p>Focus on the input bix to trigger the event.</p>
+    <input type="text" id="inp" onfocus="focusFunction()" onblur="blurFunction()">
+
+        <script>
+            var textinput = document.getElementById("inp");
+
+            function focusFunction(){
+                textinput.style.background = "yellow";
+            }
+
+            function blurFunction(){
+                textinput.style.background = "red";
+            }
+
+        </script>
+</body>
+</html>

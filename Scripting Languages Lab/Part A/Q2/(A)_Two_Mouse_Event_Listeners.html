@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event</title>
+</head>
+<body>
+    <button id='button'>Amazing button bro! Try clicking on it</button>
+
+    <p id='text'>This paragraph is to see the changes when button is clicked and the events are triggered.<br></p>
+
+    <script>
+        var para = document.getElementById("text");
+        var button = document.getElementById('button');
+
+        button.addEventListener('click', clickFunction);
+        button.addEventListener('mousedown', mouseDownFunction);
+        button.addEventListener('mouseover', mouseOverFunction);
+
+        function clickFunction(){
+            para.innerHTML += 'Mouse clicked!<br>';
+        }
+
+        function mouseDownFunction(){
+            para.innerHTML += 'Mouse down!<br>';
+        }
+
+        function mouseOverFunction(){
+            para.innerHTML += 'Moused over!<br>';
+        }
+    </script>
+</body>
+</html>
