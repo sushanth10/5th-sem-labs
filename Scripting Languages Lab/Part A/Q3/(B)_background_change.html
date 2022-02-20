@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Change</title>
+</head>
+<body>
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste illum quisquam, incidunt asperiores culpa voluptate dignissimos, unde magnam maxime ducimus aspernatur sed quos aliquam! Sit distinctio ad nam fuga ut illum praesentium, impedit beatae reprehenderit veniam autem temporibus, cupiditate, officiis ex sint perspiciatis. Sit repellat similique nostrum dignissimos laudantium explicabo, ut sed harum iusto commodi illum unde minus pariatur odit quas quos cupiditate sint suscipit laborum consectetur doloremque. Laudantium incidunt quisquam officiis cupiditate laboriosam iusto deleniti, at, accusantium porro aut illo, facere eos? Nam dicta natus exercitationem modi doloremque rerum, at unde voluptatibus dolore nihil eveniet temporibus, laudantium possimus atque.</p>
+
+    <button id='bg-change'>CLICK HERE FOR CHANGE IN BACKGROUND COLOR</button>
+    
+    <script>
+        
+        var btn = document.getElementById("bg-change");
+
+        btn.addEventListener('click', colorChange);
+
+        function colorChange(){
+
+            // next four lines are to generate random rgb colors coordinates
+            var r = Math.floor(Math.random()*255);
+            var g = Math.floor(Math.random()*255);
+            var b = Math.floor(Math.random()*255);
+            var color = 'rgb('+r+','+g+','+b+')'; 
+            // comment out the previous four lines if you want to provide a simple color of your choice
+
+            document.body.style.background = color;
+        }
+    </script>
+</body>
+</html>

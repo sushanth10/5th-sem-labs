@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key press events</title>
+</head>
+<body>
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam in repellat commodi, quis neque ullam praesentium delectus mollitia eum molestiae, maiores dolores quia libero iure eius! Praesentium incidunt cupiditate nisi?</p>
+
+    <input type="text" id='my-inp' onkeyup="change('blue')" onkeydown="change('red')">
+
+    <script>
+        var textbox = document.getElementById('my-inp')
+        
+        function change(color){
+            textbox.style.background = color;
+        }
+    </script>
+    
+</body>
+</html>
