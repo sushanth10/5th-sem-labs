@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisiblity Test</title>
+</head>
+<body>
+
+    <h2>Divisiblity check by 3 or 7</h2>
+
+    <label for="number-inp">Enter number : </label><input type="text" id='number-inp'>
+    <br>
+    <br>
+    <button id='check'>Check Divisiblity</button>
+
+    <p id='display'></p>
+
+    <script>
+        var btn = document.getElementById('check');
+        var para = document.getElementById('display');
+
+        btn.addEventListener('click', checkDivisibility);
+
+        function checkDivisibility(){
+            var num = document.getElementById('number-inp').value;
+
+            if(num%3==0 || num%7==0){
+                para.innerHTML = "True";
+            }else{
+                para.innerHTML = "False";
+            }
+        }
+    </script>
+</body>
+</html>
