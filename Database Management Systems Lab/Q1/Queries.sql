@@ -67,7 +67,7 @@ insert into works_on values(4, 105, 32);
 
 -- SQL Queries --
 
--- 1. Obtain the SSN of employees assigned to database projects.
+-- 1 -- 
 
 select e.* from emp e natural join works_on w natural join proj p where p.domain = 'Database';
 
