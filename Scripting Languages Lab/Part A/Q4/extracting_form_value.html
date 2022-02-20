@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Values</title>
+</head>
+<body>
+    
+    <form>
+        <label for="fname">Enter your first name :</label><input type="text" name="fname" id="fname">
+        <br><br>
+        <label for="lname">Enter your last name : </label><input type="text" name="lname" id="lname">
+    </form>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis necessitatibus adipisci iusto magni odit quo accusantium doloribus ipsam laboriosam, maiores, ad consequuntur totam corrupti magnam nisi ducimus nobis nostrum reiciendis nemo? Labore deserunt sed qui dignissimos enim distinctio illo exercitationem vitae laborum maiores cupiditate aperiam nisi, provident perferendis. Ullam, quaerat!</p>
+    
+    <br>
+    <br>
+
+    <button id="mybtn">Display details</button>
+    <p id='text'> <u> Details List </u><br></p>
+
+    <script>
+        var para = document.getElementById('text');
+        var btn = document.getElementById('mybtn');
+
+        btn.addEventListener('click', displayDetails);
+
+        function displayDetails(){
+            var fname  = document.forms[0].fname.value;
+            var lname = document.forms[0].lname.value;
+
+            para.innerHTML += `${fname} ${lname} <br>`;
+            alert(`Hello ${fname} ${lname}`);
+        }
+
+    </script>
+</body>
+</html>
