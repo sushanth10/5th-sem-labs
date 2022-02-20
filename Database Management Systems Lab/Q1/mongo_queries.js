@@ -17,5 +17,4 @@ db.Employee.find().pretty()
 db.Employee.find({'deptname':'it services'}).pretty()
 
 // 2
-
 db.Employee.find({'pno':104}).pretty()
