@@ -1,3 +1,5 @@
+-- THESE QUERIES ARE MYSQL QUERIES AND THE SQLPLUS QUERIES CAN BE A LITTLE HERE AND THERE W.R.T DATATYPES
+
 -- creating tables --
 
 create table emp(
@@ -19,14 +21,6 @@ create table works_on(
     foreign key(ssn) references emp(ssn) on delete cascade on update cascade, 
     foreign key(pno) references proj(pno) on delete cascade on update cascade
 );
-
--- displaying all data once --
-
-select * from emp;
-
-select * from proj;
-
-select * from works_on;
 
 -- inserting data into emp --
 
@@ -64,6 +58,13 @@ insert into works_on values(2, 102, 10);
 
 insert into works_on values(4, 105, 32);
 
+-- displaying all data once --
+
+select * from emp;
+
+select * from proj;
+
+select * from works_on;
 
 -- SQL Queries --
 
