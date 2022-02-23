@@ -18,8 +18,8 @@ create table supply(
     sid number(10),
     qty number(10),
     primary key(pid,sid), 
-    foreign key(pid) references part(pid) on delete cascade on update cascade,
-    foreign key(sid) references supplier(sid) on delete cascade on update cascade
+    foreign key(pid) references part(pid) on delete cascade,
+    foreign key(sid) references supplier(sid) on delete cascade
 );
 
 
