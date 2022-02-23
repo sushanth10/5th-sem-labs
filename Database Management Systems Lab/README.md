@@ -59,8 +59,8 @@ e) Create the table, insert suitable tuples and perform the following operations
  
  2. Display all suppliers who supply the part with part identifier: #Part_No.
 
-g) Write a PL/SQL program to display the contents of the above tables and then
-update the quantity of parts shipped by 5%. 
+g) Write a PL/SQL program to copy the contents of the Shipment table to another table
+ for maintaining records for specific part number.  
 
 
 # Exercise-III
