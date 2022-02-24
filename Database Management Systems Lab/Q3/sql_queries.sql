@@ -65,10 +65,11 @@ select * from reserves;
 -- SQL Queries
 
 -- 1
-select b.bid from boats b, reserves r, sailor s where b.bid=r.bid and s.sid=r.sid and sname='Ram';
+select b.bid from boat b, reserves r, sailor s where b.bid=r.bid and s.sid=r.sid and sname='Ram';
 
 -- 2
-
+select b.bid from boat b, reserves r where b.bid=r.bid
+    group by b.bid having count(distinct(r.sid))=(select count(sid) from sailor);
 
 -- 3
 select s.*, count(r.bid) from boat b, reserves r, sailor s where b.bid=r.bid and s.sid=r.sid group by s.sid, s.sname, s.age;
